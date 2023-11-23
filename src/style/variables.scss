@@ -1,0 +1,11 @@
+$main-orange: #ff5e0e;
+$steel-grey: #414a4c;
+$grey-button-bg: rgba(0, 0, 0, 0.2);
+
+$orange-button-hover-color: rgba(255, 94, 14, 0.6);
+$grey-button-hover-color: rgba(211, 211, 211, 0.6);
+
+@mixin button-hover($bg-color, $border-color) {
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+}

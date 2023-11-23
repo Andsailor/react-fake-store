@@ -1,0 +1,23 @@
+@import "../../style/variables.scss";
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba($main-orange, 0.1);
+  border-bottom: 2px solid rgba($main-orange, 0.3);
+  width: 100%;
+  padding: 0.5rem 1rem;
+
+  &-avatar {
+    cursor: pointer;
+    width: clamp(20px, 10vw, 50px);
+    height: clamp(20px, 10vw, 50px);
+    border-radius: 100%;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  &-logo {
+    width: clamp(50px, 30vw, 100px);
+  }
+}

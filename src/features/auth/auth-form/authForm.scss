@@ -1,58 +1,99 @@
+@import "../../..//style/variables.scss";
+
 .form {
-  background: rgba(0, 0, 0, 0.06);
-  margin-top: 10rem;
+  background: rgba(211, 211, 211, 0.2);
+  min-width: 300px;
+  margin-top: 2rem;
   position: relative;
-  max-width: 500px;
-  padding: 4rem;
-  box-shadow: 1px 1px 3px 1px;
-  border-radius: 5px;
+  padding: clamp(18px, 10vw, 40px) clamp(18px, 10vw, 64px);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  animation: appear 0.5s ease-in;
+  max-height: 30rem;
+
+  &-error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+  }
 
   &-group {
+    transition: 0.3s all;
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
     input {
-      background: #e5e4e2;
+      background: #fff;
       padding: 0.5rem;
       height: 2.5rem;
       border-radius: 4px;
       border: 1px solid grey;
+      &:hover {
+        background-color: rgba(255, 94, 14, 0.1);
+      }
+    }
+    .validation {
+      border: $main-orange 2px solid;
+      :focus {
+        border: $main-orange 2px solid;
+        outline: none;
+      }
+    }
+
+    label {
+      font-size: 1rem;
+    }
+    &-error {
+      margin-left: 0.3rem;
+      margin-top: 0.3rem;
+      color: $main-orange;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      &-circle {
+        background-color: $main-orange;
+        width: 5px;
+        height: 5px;
+        border-radius: 100%;
+      }
     }
   }
   &-buttons {
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
+    display: flex;
+
     :nth-child(2) {
-      width: 100px;
+      width: clamp(80px, 2vw, 100px);
       margin-left: 1rem;
-      background-color: lightcoral;
+      background-color: rgb(211, 211, 211);
+      border: 1px solid $grey-button-bg;
+      &:hover {
+        @include button-hover($grey-button-hover-color, $steel-grey);
+      }
     }
     &_button {
+      transition: 0.2s all;
       border: none;
       cursor: pointer;
-      background-color: lightgreen;
+      background-color: $main-orange;
       height: 2.5rem;
       border-radius: 4px;
-      width: 200px;
+      border: 1px solid $grey-button-bg;
+      width: clamp(130px, 20vw, 200px);
+      &:hover {
+        @include button-hover($orange-button-hover-color, $main-orange);
+      }
     }
   }
   &-registration {
+    font-size: clamp(15px, 2vw, 18px);
     position: absolute;
     bottom: 5px;
     a {
       text-decoration: underline;
       color: black;
       font-weight: bold;
-    }
-  }
-}
-
-@media (max-width: 470px) {
-  .form {
-    padding: 4rem 1rem;
-    &-buttons {
-      &_button {
-        width: 150px;
-      }
     }
   }
 }

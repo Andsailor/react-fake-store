@@ -1,0 +1,10 @@
+@import "../../style/variables.scss";
+.container {
+  border: 2px solid rgba($main-orange, 0.2);
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.01);
+}

@@ -1,0 +1,56 @@
+@import "../../style/variables.scss";
+.welcome {
+  padding: 1rem;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  &-logo {
+    width: clamp(150px, 12vw, 400px);
+  }
+  &-title {
+    margin-top: clamp(25px, 30vw, 80px);
+    color: $steel-grey;
+    font-size: clamp(40px, 10vw, 60px);
+    span {
+      color: $main-orange;
+    }
+  }
+  &-subtitle {
+    text-transform: uppercase;
+    color: $steel-grey;
+    font-size: clamp(15px, 5vw, 30px);
+    span {
+      color: $main-orange;
+    }
+  }
+  &-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    button {
+      font-weight: 500;
+      cursor: pointer;
+      height: 2.5rem;
+      transition: 0.2s all;
+    }
+    &_login {
+      background-color: $main-orange;
+      border: 1px solid $grey-button-bg;
+      border-radius: 4px;
+      width: clamp(80px, 10vw, 100px);
+      &:hover {
+        @include button-hover($orange-button-hover-color, $main-orange);
+      }
+    }
+    &_registration {
+      background-color: $grey-button-bg;
+      border: 1px solid $grey-button-bg;
+      border-radius: 4px;
+      width: clamp(160px, 20vw, 200px);
+      &:hover {
+        @include button-hover($grey-button-hover-color, $steel-grey);
+      }
+    }
+  }
+}

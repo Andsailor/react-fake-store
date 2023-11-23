@@ -1,16 +1,29 @@
 import axios from "axios";
-import type { IAuthFormParams } from "../types/types";
+import type {
+  IAuthFormParams,
+  IGetTokenResponse,
+  IGetUserByTokenResponse,
+} from "../types/types";
 
 class AuthService {
   private REG_URL = "https://api.escuelajs.co/api/v1/users/";
-  private LOG_URL = "https://api.escuelajs.co/api/v1/auth/login";
+  private TOKEN_URL = "https://api.escuelajs.co/api/v1/auth/login";
+  private LOG_URL = "https://api.escuelajs.co/api/v1/auth/profile";
 
   createUser(params: IAuthFormParams) {
-    axios.post(this.REG_URL, params).then((r) => console.log(r));
+    return axios.post(this.REG_URL, params);
   }
 
-  verifyUser(params: IAuthFormParams) {
-    axios.post(this.LOG_URL, params).then((r) => console.log(r));
+  getAuthToken(params: IAuthFormParams) {
+    return axios.post<IGetTokenResponse>(this.TOKEN_URL, params);
+  }
+
+  getUserByToken(token: string | null) {
+    return axios.get<IGetUserByTokenResponse>(this.LOG_URL, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   }
 }
 
