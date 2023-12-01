@@ -20,3 +20,21 @@ export interface IGetUserByTokenResponse {
   creationAt: string;
   updatedAt: string;
 }
+
+export interface IGetProductsResponse {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: {
+    id: number;
+    name: string;
+    image: string;
+  };
+  images: string[];
+}
+
+export interface IGetAllCategoriesResponse {
+  id: number;
+  name: string;
+}

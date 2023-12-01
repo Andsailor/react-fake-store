@@ -1,0 +1,51 @@
+@import "../../style/variables.scss";
+.products {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  &-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  &-button {
+    height: 2.1rem;
+    cursor: pointer;
+    font-weight: 500;
+    max-width: 150px;
+    width: 100%;
+    background-color: rgba($main-orange, 0.8);
+    border-radius: 4px;
+    border: 1px solid $steel-grey;
+    margin-top: 2rem;
+    &:hover {
+      @include button-hover($orange-button-hover-color, $steel-grey);
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .products {
+    justify-content: center;
+    &-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media (max-width: 730px) {
+  .products {
+    &-cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 525px) {
+  .products {
+    &-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+}

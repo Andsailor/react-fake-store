@@ -1,0 +1,27 @@
+@import "../../../style/variables.scss";
+.search {
+  position: relative;
+  display: flex;
+  margin-bottom: 1rem;
+  input {
+    height: 1.8rem;
+    padding: 0.3rem;
+    border: 0.5px solid rgba($steel-grey, 0.5);
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+    /* width: clamp(100px, 7vw, 300px); */
+    &:hover {
+      background-color: rgba($main-orange, 0.1);
+    }
+  }
+  button {
+    cursor: pointer;
+    border: 1px solid rgba($steel-grey, 0.5);
+    border-radius: 4px;
+    background-color: rgba($main-orange, 0.8);
+    height: 100%;
+    width: 2.2rem;
+    position: absolute;
+    right: -33px;
+  }
+}

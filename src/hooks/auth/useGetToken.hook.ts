@@ -16,7 +16,7 @@ export const useGetToken = () => {
       },
       onSuccess({ data }) {
         console.log(data.access_token);
-        navigate("/main");
+        navigate("/main/products");
         localStorage.setItem("access_token", data.access_token);
       },
       onError(error) {

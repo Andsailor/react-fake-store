@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import { Header, PopupMenu } from "../../components/components";
 
 import "./mainPage.scss";
@@ -16,7 +16,9 @@ export function MainPage() {
   return (
     <div className="container">
       <Header togglePopup={setIsPopup} />
+
       {isPopup && <PopupMenu />}
+      <Outlet />
     </div>
   );
 }

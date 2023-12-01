@@ -1,0 +1,17 @@
+@import "../../style/variables.scss";
+.burger {
+  z-index: 5;
+  padding: 0.8rem 0.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  span {
+    background-color: $steel-grey;
+    margin-bottom: 5px;
+    width: 40px;
+    border: 1px solid $steel-grey;
+    height: 5px;
+  }
+}

@@ -1,0 +1,56 @@
+@import "../../style/variables.scss";
+.product {
+  transition: 0.2s all;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid rgba($main-orange, 0.5);
+  max-width: 300px;
+  width: 100%;
+  height: 365px;
+  &-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: $steel-grey;
+  }
+  &-image {
+    margin: 0 auto;
+    margin-bottom: 0.4rem;
+    width: clamp(180px, 17vw, 250px);
+    height: clamp(180px, 25vw, 210px);
+  }
+  &-price {
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 5px;
+    color: $steel-grey;
+  }
+  &:hover {
+    transform: scale(1.02);
+  }
+  &-category {
+    color: $main-orange;
+    position: absolute;
+    bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .product {
+    height: 330px;
+  }
+}
+
+@media (max-width: 525px) {
+  .product {
+    width: 300px;
+    &-title {
+      font-size: 1.2rem;
+    }
+    &-price {
+      font-size: 1.2rem;
+    }
+  }
+}

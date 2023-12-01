@@ -1,4 +1,5 @@
-export { AuthPage } from "./AuthPage/AuthPage.tsx";
-export { WelcomePage } from "./WelcomePage/WelcomePage.tsx";
-export { MainPage } from "./MainPage/MainPage.tsx";
-export { SuccessPage } from "./SuccessPage/SuccessPage.tsx";
+export { AuthPage } from "./auth-page/AuthPage.tsx";
+export { WelcomePage } from "./welcome-page/WelcomePage.tsx";
+export { MainPage } from "./main-page/MainPage.tsx";
+export { SuccessPage } from "./success-page/SuccessPage.tsx";
+export { ProductsPage } from "./products-page/ProductsPage.tsx";

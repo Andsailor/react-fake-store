@@ -10,8 +10,8 @@
 
   &-avatar {
     cursor: pointer;
-    width: clamp(20px, 10vw, 50px);
-    height: clamp(20px, 10vw, 50px);
+    width: clamp(30px, 12vw, 50px);
+    height: clamp(30px, 12vw, 50px);
     border-radius: 100%;
     &:hover {
       transform: scale(1.05);
