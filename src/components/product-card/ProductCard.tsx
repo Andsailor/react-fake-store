@@ -1,3 +1,4 @@
+import empty from "../../assets/empty.png";
 import "./productCard.scss";
 
 interface IProps {
@@ -10,7 +11,11 @@ interface IProps {
 export function ProductCard({ image, title, price, category }: IProps) {
   return (
     <div className="product">
-      <img className="product-image" src={image} alt="product view" />
+      <img
+        className="product-image"
+        src={image.slice(image.length - 4) === "html" ? empty : image}
+        alt="product view"
+      />
       <h3 className="product-title">{title}</h3>
       <h4 className="product-category">{category}</h4>
       <div className="product-price">{price}$</div>

@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { Spinner } from "../../../components/components";
 
 import "./authForm.scss";
+import { useEffect } from "react";
 
 export function AuthForm() {
   const { createUser } = useCreateUser();
@@ -15,6 +16,10 @@ export function AuthForm() {
   const location = useLocation();
   const navigate = useNavigate();
   const currentLocation = location.pathname.slice(1);
+
+  useEffect(() => {
+    window.localStorage.getItem("access_token") && navigate("/main/products");
+  });
 
   const formCustomizationParams = {
     path: currentLocation === "login" ? "/registration" : "/login",

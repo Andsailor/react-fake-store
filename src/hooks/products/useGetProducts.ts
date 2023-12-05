@@ -1,14 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import productsService from "../../services/products.service";
 
-export const useGetProducts = (offset: number = 0) => {
+export const useGetProducts = (category: string = "", product: string = "") => {
+  const { getAllProducts } = productsService();
   return useQuery({
-    queryKey: ["get-products"],
+    queryKey: ["get-products", category, product],
     queryFn: () => {
-      return productsService.getAllProducts(offset);
+      return getAllProducts(category, product);
     },
     select({ data }) {
       return data;
     },
+    placeholderData: keepPreviousData,
   });
 };

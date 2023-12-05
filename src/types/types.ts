@@ -21,20 +21,21 @@ export interface IGetUserByTokenResponse {
   updatedAt: string;
 }
 
-export interface IGetProductsResponse {
-  id: number;
+interface ISingleProduct {
+  id: number | string;
   title: string;
-  price: number;
   description: string;
-  category: {
-    id: number;
-    name: string;
-    image: string;
-  };
+  price: number;
+  rating: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
   images: string[];
 }
 
-export interface IGetAllCategoriesResponse {
-  id: number;
-  name: string;
+export interface IGetProductsResponse {
+  products: ISingleProduct[];
+  total: number;
 }
+
+export type IGetAllCategoriesResponse = string[];
