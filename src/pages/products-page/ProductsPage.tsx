@@ -3,7 +3,7 @@ import { useGetProducts } from "../../hooks/products/useGetProducts";
 import { useAppSelector } from "../../store/store";
 
 import { ProductCard, Burger } from "../../components/components";
-import { Filter, FilterModal } from "../../features/features";
+import { Filter, FilterModal, Pagination } from "../../features/features";
 
 import placeholderImage from "../../assets/empty.png";
 import emptyProductPageImage from "../../assets/noproduct.png";
@@ -14,11 +14,20 @@ import "./../../components/product-card/productCard.scss";
 export function ProductsPage() {
   const [isFilterVisible, setIsFilterVisible] = useState(true);
   const [isModalFilterVisible, setIsModalFilterVisible] = useState(false);
+
   const filter = useAppSelector((state) => state.filter.filter);
   const filterSearchParam = useAppSelector(
     (state) => state.filter.filterSearchParam
   );
-  const { data, isFetching } = useGetProducts(filter, filterSearchParam);
+  const paginationOffset = useAppSelector(
+    (state) => state.pagination.paginationOffset
+  );
+
+  const { data, isFetching } = useGetProducts(
+    filter,
+    filterSearchParam,
+    paginationOffset
+  );
 
   const produtcsPadding = isFilterVisible
     ? "2rem 1rem 2rem 1rem"
@@ -89,6 +98,7 @@ export function ProductsPage() {
           <div className="products-cards">
             {data.products.map((product) => (
               <div
+                key={product.id}
                 style={{
                   position: "relative",
                 }}
@@ -114,6 +124,7 @@ export function ProductsPage() {
             ))}
           </div>
         )}
+        <Pagination />
       </div>
     </div>
   );

@@ -1,0 +1,25 @@
+@import "../../style/variables.scss";
+
+.pagination {
+  padding: 0 1rem;
+  margin-top: 1.5rem;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  &-button {
+    color: $main-orange;
+    background-color: rgba($main-orange, 0.1);
+    border-radius: 4px;
+    border: 1px solid $main-orange;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+.active {
+  background-color: rgba($main-orange, 0.8);
+  color: $steel-grey;
+  border-color: $steel-grey;
+}

@@ -58,7 +58,7 @@ export function Filter({ filterStyleParams }: IProps) {
       {data &&
         data.map((filter, i) => {
           return (
-            <div className="filter-group">
+            <div key={i} className="filter-group">
               <input
                 onChange={(e) => {
                   const target = e.target as HTMLInputElement;
@@ -69,7 +69,6 @@ export function Filter({ filterStyleParams }: IProps) {
                 type="checkbox"
                 name={filter}
                 id={filter}
-                key={i}
               />
               <label htmlFor={filter}>
                 {filter.slice(0, 1).toUpperCase() + filter.slice(1)}

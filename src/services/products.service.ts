@@ -12,7 +12,7 @@ const ProductsServise = () => {
   );
   const BASE_URL = "https://dummyjson.com/products";
 
-  const GET_ALL_PRODUCTS_URL = `${BASE_URL}?limit=100`;
+  const GET_ALL_PRODUCTS_URL = `${BASE_URL}?limit=12`;
   const GET_ALL_CATEGORIES_URL = `${BASE_URL}/categories`;
   const GET_PRODUCT_BY_CATEGORY = `${BASE_URL}/category/`;
   const GET_SEARCH_PRODUCT_URL = `${BASE_URL}/search?q=`;
@@ -23,9 +23,13 @@ const ProductsServise = () => {
     ? GET_SEARCH_PRODUCT_URL
     : GET_ALL_PRODUCTS_URL;
 
-  function getAllProducts(category = "", product = "") {
+  const offsetQueryParam = CURRENT_URL === GET_ALL_PRODUCTS_URL ? "&skip=" : "";
+
+  function getAllProducts(category = "", product = "", pagination = 0) {
     return axios.get<IGetProductsResponse>(
-      `${CURRENT_URL}${category}${product}`
+      `${CURRENT_URL}${category}${product}${offsetQueryParam}${
+        offsetQueryParam && pagination
+      }`
     );
   }
 
