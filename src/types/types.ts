@@ -21,7 +21,7 @@ export interface IGetUserByTokenResponse {
   updatedAt: string;
 }
 
-interface ISingleProduct {
+export interface ISingleProduct {
   id: number | string;
   title: string;
   description: string;

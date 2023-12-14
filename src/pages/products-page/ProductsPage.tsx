@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import { useGetProducts } from "../../hooks/products/useGetProducts";
-import { useAppSelector } from "../../store/store";
+import { useAppSelector, useAppDispatch } from "../../store/store";
+import { setProductId, showModal } from "../../store/slices/modalSlice";
 
-import { ProductCard, Burger } from "../../components/components";
+import {
+  ProductCard,
+  Burger,
+  CardPlaceholder,
+  NotFound,
+} from "../../components/components";
 import { Filter, FilterModal, Pagination } from "../../features/features";
 
 import placeholderImage from "../../assets/empty.png";
-import emptyProductPageImage from "../../assets/noproduct.png";
 
 import "./productsPage.scss";
 import "./../../components/product-card/productCard.scss";
@@ -29,9 +34,7 @@ export function ProductsPage() {
     paginationOffset
   );
 
-  const produtcsPadding = isFilterVisible
-    ? "2rem 1rem 2rem 1rem"
-    : "3.2rem 1rem";
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (window.innerWidth < 1024) {
@@ -46,6 +49,16 @@ export function ProductsPage() {
       }
     });
   }, []);
+
+  function handleOnProductCardClick(id: number) {
+    dispatch(setProductId(id));
+    document.body.style.overflow = "hidden";
+    dispatch(showModal(true));
+  }
+
+  const produtcsPadding = isFilterVisible
+    ? "2rem 1rem 2rem 1rem"
+    : "3.2rem 1rem";
 
   return (
     <div
@@ -76,50 +89,29 @@ export function ProductsPage() {
           alignItems: "center",
         }}
       >
-        {data?.products.length === 0 && (
-          <div className="products-empty">
-            <img
-              style={{
-                height: 100 + "%",
-              }}
-              src={emptyProductPageImage}
-              alt="no products available image"
-            />
-            <div>
-              <h3>No products found</h3>
-              <div>
-                We weren't able to find any existing product. Try to find
-                another one.
-              </div>
-            </div>
-          </div>
-        )}
+        {data?.products.length === 0 && <NotFound />}
         {data && (
           <div className="products-cards">
             {data.products.map((product) => (
               <div
+                onClick={() => handleOnProductCardClick(Number(product.id))}
                 key={product.id}
                 style={{
                   position: "relative",
                 }}
               >
-                <ProductCard
-                  title={product.title}
-                  image={
-                    product.images[0] ? product.images[0] : placeholderImage
-                  }
-                  price={product.price}
-                  category={product.category}
-                  key={product.id}
-                />
-                {isFetching && (
-                  <div className="placeholder">
-                    <div className="placeholder-img"></div>
-                    <div className="placeholder-title"></div>
-                    <div className="placeholder-category"></div>
-                    <div className="placeholder-price"></div>
-                  </div>
-                )}
+                <div>
+                  <ProductCard
+                    title={product.title}
+                    image={
+                      product.images[0] ? product.images[0] : placeholderImage
+                    }
+                    price={product.price}
+                    category={product.category}
+                    key={product.id}
+                  />
+                </div>
+                {isFetching && <CardPlaceholder />}
               </div>
             ))}
           </div>

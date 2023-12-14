@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import filterSlice from "./slices/filterSlice";
 import paginationSlice from "./slices/paginationSlice";
+import modalSlice from "./slices/modalSlice";
 
 const store = configureStore({
   reducer: {
     filter: filterSlice,
     pagination: paginationSlice,
+    modal: modalSlice,
   },
 });
 

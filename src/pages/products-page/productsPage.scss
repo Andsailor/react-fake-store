@@ -24,10 +24,6 @@
       @include button-hover($orange-button-hover-color, $steel-grey);
     }
   }
-  &-empty {
-    text-align: center;
-    padding-right: clamp(1rem, 5vw, 10rem);
-  }
 }
 
 @media (max-width: 1150px) {
@@ -36,13 +32,6 @@
     &-cards {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
-}
-
-@media (max-width: 1025px) {
-  .products-empty {
-    padding-bottom: 35rem;
-    padding-left: 0;
   }
 }
 

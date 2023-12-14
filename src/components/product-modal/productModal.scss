@@ -1,0 +1,181 @@
+@import "../../style/variables.scss";
+.modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-close {
+    cursor: pointer;
+    display: flex;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 200;
+    top: 0;
+    right: 0;
+    span {
+      &:nth-child(2) {
+        transform: rotate(45deg) translateY(28px);
+      }
+
+      transform: rotate(-45deg) translateY(28px);
+      border: 1px solid black;
+      background-color: black;
+      width: 40px;
+      height: 4px;
+      margin-top: 1rem;
+    }
+  }
+  &-wrapper {
+    border: 3px solid rgba($main-orange, 0.5);
+    position: relative;
+    padding: 2rem 0rem;
+    max-width: 700px;
+    width: 100%;
+    max-height: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    &-carousel {
+      margin: 0 auto;
+      width: 70%;
+      div {
+        height: 100%;
+        img {
+          height: 100%;
+        }
+      }
+
+      .slick-track {
+        height: 300px;
+      }
+      button {
+        position: absolute;
+        z-index: 10;
+      }
+
+      .slick-slider {
+        button {
+          &::before {
+            color: $main-orange;
+          }
+        }
+      }
+      .slick-arrow {
+        background-color: #e0e0e0;
+        height: 100%;
+        width: 50px;
+        &:hover {
+          background-color: rgba(black, 0.1);
+        }
+      }
+
+      .slick-prev {
+        left: -50px;
+      }
+      .slick-next {
+        right: -49px;
+      }
+      .slick-dots {
+        li {
+          button {
+            &::before {
+              color: $main-orange;
+            }
+          }
+        }
+      }
+    }
+    &-information {
+      &:nth-child(1) {
+        flex-direction: column;
+      }
+      margin-top: 2rem;
+      padding: 0 1.5rem;
+      &-rating {
+        font-size: clamp(10px, 5vw, 1.2rem);
+        display: flex;
+        align-items: center;
+      }
+      &-title {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+        margin-bottom: 0.3rem;
+      }
+      &-star {
+        margin-right: 0.3rem;
+        height: clamp(15px, 5vw, 20px);
+        transform: translateY(-2px);
+      }
+      &-category {
+        color: $main-orange;
+        font-weight: 600;
+        border: 1px solid $main-orange;
+        padding: 0.3rem;
+        border-radius: 8px;
+        background-color: rgba($main-orange, 0.1);
+      }
+      &-description {
+        margin-top: 1rem;
+        font-weight: 500;
+      }
+      &-footer {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-price {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+        &-cart {
+          transition: 0.2s all;
+          cursor: pointer;
+          width: 40px;
+          &:hover {
+            transform: scale(1.07);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .modal {
+    padding: 0;
+    &-wrapper {
+      &-carousel {
+        .slick-track {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .modal {
+    &-wrapper {
+      padding: 1rem 0.5rem;
+      &-carousel {
+        width: 100%;
+        .slick-slider {
+          .slick-arrow {
+            background-color: transparent;
+          }
+          .slick-prev {
+            left: 2px;
+          }
+          .slick-next {
+            right: 2px;
+          }
+        }
+      }
+    }
+  }
+}

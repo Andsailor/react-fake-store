@@ -1,4 +1,5 @@
 import "./app.scss";
+import { useAppSelector } from "./store/store";
 import { Route, Routes } from "react-router-dom";
 
 import {
@@ -8,8 +9,10 @@ import {
   SuccessPage,
   ProductsPage,
 } from "./pages/pages";
+import { ProductModal } from "./components/components";
 
 function App() {
+  const isModalVisible = useAppSelector((state) => state.modal.isModalVisible);
   return (
     <div className="app">
       <Routes>
@@ -21,6 +24,7 @@ function App() {
         </Route>
         <Route path="/success" element={<SuccessPage />} />
       </Routes>
+      {isModalVisible && <ProductModal />}
     </div>
   );
 }

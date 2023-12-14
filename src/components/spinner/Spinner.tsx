@@ -1,10 +1,23 @@
 import spinner from "../../assets/spinner.svg";
 import "./spinner.scss";
 
-export function Spinner() {
+interface IProps {
+  width: string;
+  height: string;
+}
+
+export function Spinner({ width, height }: IProps) {
   return (
     <div className="spinner">
-      <img className="spinner-img" src={spinner} alt="preloading spinner" />
+      <img
+        style={{
+          width: width,
+          height: height,
+        }}
+        className="spinner-img"
+        src={spinner}
+        alt="preloading spinner"
+      />
     </div>
   );
 }

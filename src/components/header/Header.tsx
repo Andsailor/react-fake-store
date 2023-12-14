@@ -14,12 +14,14 @@ export function Header({ togglePopup }: IProps) {
   return (
     <header className="header">
       <img src={mainLogo} alt="header main logo" className="header-logo" />
-      <img
-        onClick={() => togglePopup((isPopup) => !isPopup)}
-        className="header-avatar"
-        src={data?.avatar}
-        alt="user avatar"
-      />
+      <div>
+        <img
+          onClick={() => togglePopup((isPopup) => !isPopup)}
+          className="header-avatar"
+          src={data?.avatar}
+          alt="user avatar"
+        />
+      </div>
     </header>
   );
 }

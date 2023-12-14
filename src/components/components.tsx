@@ -4,3 +4,6 @@ export { Header } from "./header/Header.tsx";
 export { PopupMenu } from "./header/popup-menu/PopupMenu.tsx";
 export { ProductCard } from "./product-card/ProductCard.tsx";
 export { Burger } from "./burger/Burger.tsx";
+export { ProductModal } from "./product-modal/ProductModal.tsx";
+export { CardPlaceholder } from "./card-placeholder/CardPlaceholder.tsx";
+export { NotFound } from "./not-found/NotFound.tsx";

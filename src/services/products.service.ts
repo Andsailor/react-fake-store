@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  ISingleProduct,
   IGetProductsResponse,
   IGetAllCategoriesResponse,
 } from "../types/types";
@@ -37,9 +38,14 @@ const ProductsServise = () => {
     return axios.get<IGetAllCategoriesResponse>(GET_ALL_CATEGORIES_URL);
   }
 
+  function getSingleProduct(id: number) {
+    return axios.get<ISingleProduct>(`${BASE_URL}/${id}`);
+  }
+
   return {
     getAllCategories,
     getAllProducts,
+    getSingleProduct,
   };
 };
 

@@ -1,0 +1,11 @@
+.empty {
+  text-align: center;
+  padding-right: clamp(1rem, 5vw, 10rem);
+}
+
+@media (max-width: 1025px) {
+  .empty {
+    padding-bottom: 35rem;
+    padding-left: 0;
+  }
+}
