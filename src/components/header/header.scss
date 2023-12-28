@@ -8,6 +8,32 @@
   width: 100%;
   padding: 0.5rem 1rem;
 
+  &-quantity {
+    position: absolute;
+    right: -10px;
+    border-radius: 100%;
+    width: 1.3rem;
+    height: 1.3rem;
+    display: flex;
+    place-content: center;
+    background-color: $main-orange;
+    font-weight: bold;
+    color: $steel-grey;
+  }
+
+  &-cart {
+    cursor: pointer;
+    border: 1px solid $main-orange;
+    padding: 0.2rem;
+    border-radius: 100%;
+    width: 3rem;
+    width: clamp(30px, 12vw, 50px);
+    height: clamp(30px, 12vw, 50px);
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
   &-avatar {
     cursor: pointer;
     width: clamp(30px, 12vw, 50px);

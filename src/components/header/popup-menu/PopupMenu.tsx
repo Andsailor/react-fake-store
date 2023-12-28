@@ -13,6 +13,7 @@ export function PopupMenu() {
       ? data?.email.slice(0, 27) + "..."
       : data?.email;
   const userName = data?.name;
+
   return (
     <div className="popup">
       <div className="popup-text">

@@ -1,4 +1,5 @@
 @import "../../style/variables.scss";
+@import "../../style/animations.scss";
 .modal {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.2);
@@ -39,7 +40,7 @@
     max-width: 700px;
     width: 100%;
     max-height: 800px;
-    background-color: #fff;
+    background-color: #fafafa;
     border-radius: 8px;
     &-carousel {
       margin: 0 auto;
@@ -67,7 +68,7 @@
         }
       }
       .slick-arrow {
-        background-color: #e0e0e0;
+        background-color: rgba(#e0e0e0, 0.4);
         height: 100%;
         width: 50px;
         &:hover {
@@ -132,12 +133,24 @@
           font-size: 1.5rem;
           font-weight: 600;
         }
-        &-cart {
-          transition: 0.2s all;
+        &-button {
+          color: $steel-grey;
+          font-weight: 600;
+          background-color: rgba($main-orange, 0.2);
+          border: 1px solid rgba($main-orange, 0.5);
+          border-radius: 4px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.3rem;
+          transition: 0.1s all;
           cursor: pointer;
-          width: 40px;
+          img {
+            width: 20px;
+            margin-right: 0.4rem;
+          }
           &:hover {
-            transform: scale(1.07);
+            transform: scale(1.03);
           }
         }
       }

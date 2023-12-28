@@ -1,4 +1,3 @@
-import "./app.scss";
 import { useAppSelector } from "./store/store";
 import { Route, Routes } from "react-router-dom";
 
@@ -9,13 +8,21 @@ import {
   SuccessPage,
   ProductsPage,
 } from "./pages/pages";
-import { ProductModal } from "./components/components";
+import {
+  ErrorPage,
+  ProductModal,
+  UserCartModal,
+} from "./components/components";
+
+import "./app.scss";
 
 function App() {
   const isModalVisible = useAppSelector((state) => state.modal.isModalVisible);
+  const isCartVisible = useAppSelector((state) => state.cart.isCartVisible);
   return (
     <div className="app">
       <Routes>
+        <Route path="/error" element={<ErrorPage />} />
         <Route path="/" element={<WelcomePage />} />
         <Route path="/login" element={<AuthPage />} />
         <Route path="/registration" element={<AuthPage />} />
@@ -25,6 +32,7 @@ function App() {
         <Route path="/success" element={<SuccessPage />} />
       </Routes>
       {isModalVisible && <ProductModal />}
+      {isCartVisible && <UserCartModal />}
     </div>
   );
 }

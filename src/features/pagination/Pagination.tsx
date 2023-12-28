@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useGetProducts } from "../../hooks/products/useGetProducts";
 import { useAppSelector } from "../../store/store";
+import { useAppDispatch } from "../../store/store";
 
 import { setPaginationOffset } from "../../store/slices/paginationSlice";
-import { useAppDispatch } from "../../store/store";
 
 import "./pagination.scss";
 

@@ -7,3 +7,5 @@ export { Burger } from "./burger/Burger.tsx";
 export { ProductModal } from "./product-modal/ProductModal.tsx";
 export { CardPlaceholder } from "./card-placeholder/CardPlaceholder.tsx";
 export { NotFound } from "./not-found/NotFound.tsx";
+export { UserCartModal } from "./user-cart-modal/UserCartModal.tsx";
+export { ErrorPage } from "./error-page/ErrorPage.tsx";

@@ -14,6 +14,9 @@ export const useCreateUser = () => {
       onSuccess() {
         navigate("/success");
       },
+      onError() {
+        navigate("/error");
+      },
     }),
   };
 };

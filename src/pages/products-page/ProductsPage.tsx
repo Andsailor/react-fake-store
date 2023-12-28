@@ -67,7 +67,9 @@ export function ProductsPage() {
       }}
       className="products"
     >
-      {isModalFilterVisible && !isFilterVisible && <FilterModal />}
+      {isModalFilterVisible && !isFilterVisible && (
+        <FilterModal setIsModalFilterVisible={setIsModalFilterVisible} />
+      )}
       {!isFilterVisible && <Burger toggleModal={setIsModalFilterVisible} />}
       {isFilterVisible && (
         <div

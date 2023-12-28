@@ -1,0 +1,32 @@
+@import "../../../style/variables.scss";
+
+.cart-product {
+  margin-bottom: 1rem;
+  border: 1px solid $main-orange;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba($main-orange, 0.1);
+  &-image {
+    cursor: pointer;
+    height: 80px;
+    width: clamp(80px, 10vw, 100px);
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+  &-title {
+    font-size: clamp(15px, 3vw, 1.3rem);
+    font-weight: 500;
+  }
+  &-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  &-delete {
+    cursor: pointer;
+    width: 25px;
+    margin-right: 0.4rem;
+  }
+}

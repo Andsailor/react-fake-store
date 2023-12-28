@@ -1,0 +1,32 @@
+@import "../../style/variables.scss";
+.error {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.01);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-logo {
+    margin: 0 auto;
+    margin-top: clamp(100px, 10vw, 150px);
+    width: 300px;
+  }
+  &-message {
+    color: $main-orange;
+  }
+  &-button {
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: clamp(200px, 10vw, 320px);
+    background-color: rgba($main-orange, 0.8);
+    border: 1px solid $steel-grey;
+    border-radius: 4px;
+    height: 2.2rem;
+    &:hover {
+      @include button-hover($orange-button-hover-color, $steel-grey);
+    }
+  }
+}

@@ -1,25 +1,22 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useFormConfig } from "../../../utils/utils";
 import { AxiosError } from "axios";
-import { useGetToken } from "../../../hooks/auth/useGetToken.hook";
-import { useFormik } from "formik";
-import { useCreateUser } from "../../../hooks/auth/useCreateUser";
-import * as Yup from "yup";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { Spinner } from "../../../components/components";
 
 import "./authForm.scss";
-import { useEffect } from "react";
 
 export function AuthForm() {
-  const { createUser } = useCreateUser();
-  const { getToken, isError, setIsError } = useGetToken();
+  const { formik, isError, setIsError, getToken, createUser } = useFormConfig();
   const location = useLocation();
   const navigate = useNavigate();
-  const currentLocation = location.pathname.slice(1);
 
   useEffect(() => {
     window.localStorage.getItem("access_token") && navigate("/main/products");
   });
+
+  const currentLocation = location.pathname.slice(1);
 
   const formCustomizationParams = {
     path: currentLocation === "login" ? "/registration" : "/login",
@@ -28,40 +25,18 @@ export function AuthForm() {
     text: currentLocation === "login" ? "Registration" : "Sign in",
     submitButtonText:
       currentLocation === "registration" ? "Create account" : "Sign in",
+    validationErrorMessage:
+      getToken.error instanceof AxiosError &&
+      getToken.error.response &&
+      getToken.error.response.data.message,
   };
-  const validationErrorMessage =
-    getToken.error instanceof AxiosError &&
-    getToken.error.response &&
-    getToken.error.response.data.message;
 
-  const formik = useFormik({
-    validationSchema: Yup.object().shape({
-      name: Yup.string()
-        .max(15, "Max 15 characters")
-        .min(3, "Min 3 characters"),
-      email: Yup.string()
-        .email("Invalid email adress")
-        .required("This field is required"),
-      password: Yup.string()
-        .min(4, "Min 4 characters")
-        .required("Password is required"),
-      avatar: Yup.string(),
-    }),
-    initialValues: {
-      name: "",
-      email: "",
-      password: "",
-      avatar:
-        "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg",
-    },
-    onSubmit: (values) => {
-      if (currentLocation === "registration") {
-        createUser.mutate(values);
-      } else {
-        getToken.mutate(values);
-      }
-    },
-  });
+  function resetFormFields() {
+    formik.values.email = "";
+    formik.values.name = "";
+    formik.values.password = "";
+    setIsError(false);
+  }
 
   return (
     <>
@@ -131,9 +106,9 @@ export function AuthForm() {
         )}
         {isError && (
           <div className="form-error">
-            {validationErrorMessage === "Unauthorized"
+            {formCustomizationParams.validationErrorMessage === "Unauthorized"
               ? "Wrong login or password"
-              : validationErrorMessage}
+              : formCustomizationParams.validationErrorMessage}
           </div>
         )}
         <div className="form-buttons">
@@ -155,15 +130,7 @@ export function AuthForm() {
 
         <div className="form-registration">
           {formCustomizationParams.question}{" "}
-          <Link
-            onClick={() => {
-              formik.values.email = "";
-              formik.values.name = "";
-              formik.values.password = "";
-              setIsError(false);
-            }}
-            to={formCustomizationParams.path}
-          >
+          <Link onClick={resetFormFields} to={formCustomizationParams.path}>
             {formCustomizationParams.text}
           </Link>
         </div>

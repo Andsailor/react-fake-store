@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import { useAppDispatch } from "../../../store/store";
 import {
   setFilter,
@@ -10,16 +10,18 @@ import "./filterSearch.scss";
 
 interface IProps {
   formWidth?: string;
+  setIsModalFilterVisible?: Dispatch<SetStateAction<boolean>>;
 }
 
-export function FilterSearch({ formWidth }: IProps) {
-  const [searchFieldValue, setSearchFieldValue] = useState("");
+export function FilterSearch({ formWidth, setIsModalFilterVisible }: IProps) {
   const dispatch = useAppDispatch();
+  const [searchFieldValue, setSearchFieldValue] = useState("");
 
   function handleSubmit() {
     if (searchFieldValue) {
       dispatch(setFilter(""));
       dispatch(setFilterSearchParam(searchFieldValue));
+      setIsModalFilterVisible && setIsModalFilterVisible(false);
     } else {
       dispatch(setFilterSearchParam(""));
       dispatch(setFilter(""));

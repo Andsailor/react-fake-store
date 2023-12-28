@@ -8,6 +8,7 @@ export const useGetCategories = () => {
     queryFn: () => {
       return getAllCategories();
     },
+
     select({ data }) {
       return data;
     },

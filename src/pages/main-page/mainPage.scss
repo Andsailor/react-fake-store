@@ -1,10 +1,12 @@
 @import "../../style/variables.scss";
 .container {
   border: 2px solid rgba($main-orange, 0.2);
+  border-bottom: none;
   position: relative;
   width: 100%;
   max-width: 1400px;
-  min-height: 100vh;
+  min-height: 911px;
+  height: 100%;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.01);
 }
