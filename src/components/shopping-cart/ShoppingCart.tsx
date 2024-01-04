@@ -1,13 +1,13 @@
 import { useAppSelector, useAppDispatch } from "../../store/store";
 import { setIsCartVisible } from "../../store/slices/cartSlice";
 
-import { CartProduct } from "./cart-product/CartProduct";
+import { ShoppingCartProduct } from "./shopping-cart-product/ShoppingCartProduct";
 
 import closeLogo from "../../assets/close.png";
 import emptyCartLogo from "../../assets/emptycart.png";
-import "./userCartModal.scss";
+import "./shoppingCart.scss";
 
-export function UserCartModal() {
+export function ShoppingCart() {
   const dispatch = useAppDispatch();
 
   const products = useAppSelector((store) => store.cart.productsInCart);
@@ -43,9 +43,10 @@ export function UserCartModal() {
             <img className="cart-wrapper-empty" src={emptyCartLogo} />
           )}
           {products &&
-            products.map((item) => {
+            products.map((item, i) => {
               return (
-                <CartProduct
+                <ShoppingCartProduct
+                  key={i}
                   image={item.images[0]}
                   title={item.title}
                   price={item.price}

@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 
 export function WelcomePage() {
   const navigate = useNavigate();
+
   return (
     <div className="welcome">
       <img src={logo} alt="main store logo" className="welcome-logo" />
@@ -22,7 +23,10 @@ export function WelcomePage() {
         </button>
         <button
           className="welcome-buttons_registration"
-          onClick={() => navigate("/registration")}
+          onClick={() => {
+            window.localStorage.clear()
+            navigate("/registration")
+          }}
         >
           Become a member
         </button>

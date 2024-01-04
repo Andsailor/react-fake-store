@@ -7,12 +7,9 @@ import {
   MainPage,
   SuccessPage,
   ProductsPage,
-} from "./pages/pages";
-import {
   ErrorPage,
-  ProductModal,
-  UserCartModal,
-} from "./components/components";
+} from "./pages/pages";
+import { ProductModal, ShoppingCart } from "./components/components";
 
 import "./app.scss";
 
@@ -32,7 +29,7 @@ function App() {
         <Route path="/success" element={<SuccessPage />} />
       </Routes>
       {isModalVisible && <ProductModal />}
-      {isCartVisible && <UserCartModal />}
+      {isCartVisible && <ShoppingCart />}
     </div>
   );
 }

@@ -4,10 +4,10 @@ import {
   setIsCartVisible,
   setTotalPrice,
 } from "../../../store/slices/cartSlice";
+import { setProductId, showModal } from "../../../store/slices/modalSlice";
 
 import deleteIcon from "../../../assets/delete.png";
-import "./cartProduct.scss";
-import { setProductId, showModal } from "../../../store/slices/modalSlice";
+import "./shoppingCartProduct.scss";
 
 interface ICartProduct {
   image: string;
@@ -16,7 +16,7 @@ interface ICartProduct {
   id: number;
 }
 
-export function CartProduct({ image, title, price, id }: ICartProduct) {
+export function ShoppingCartProduct({ image, title, price, id }: ICartProduct) {
   const dispatch = useAppDispatch();
 
   function handleOnImageClick() {
