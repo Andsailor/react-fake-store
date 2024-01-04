@@ -37,7 +37,7 @@ Also used:
 - [Slick](https://react-slick.neostack.com/docs/get-started/) - React slider library
 - [Axios](https://axios-http.com/ru/) - HTTP requests library
 
-## Authorization and store API's was provided by [Platzi Fake Store API](https://fakeapi.platzi.com/) and [dummyJSON](https://dummyjson.com/).
+## Authorization and store APIs was provided by [Platzi Fake Store API](https://fakeapi.platzi.com/) and [dummyJSON](https://dummyjson.com/).
 
 ### My contacts:
 
